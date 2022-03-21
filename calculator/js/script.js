@@ -35,7 +35,6 @@ buttonClick.addEventListener('click',function(elem){
 
     if(currentCell.classList.contains('sub')){
 
-
         if(sum == 0){
             equal()
             sign.push('-')
@@ -45,6 +44,7 @@ buttonClick.addEventListener('click',function(elem){
             count = ''
             return
         }
+
         equal()
         sign.push('-')
         sum -= +count
@@ -62,10 +62,14 @@ buttonClick.addEventListener('click',function(elem){
         sign.push('=')
         return
     }
-
+console.log(sum)
     if(currentCell.classList.contains('multiply')){
         if(sum == 0){
             equal()
+            // if(sign.includes('=')){
+            //     sum *= count
+            // }else{
+            // }
             sign.push('*')
             sum = +count
             inputExpression.textContent = sum + ' x'
@@ -76,12 +80,11 @@ buttonClick.addEventListener('click',function(elem){
         if(sign.slice(-1) == '='){
             inputExpression.textContent = sum + ' x'
             inputNum.textContent = 0
+            // count = ''
             return
         }
         sign.push('*')
-        console.log(sum);
         sum *= +inputNum.textContent
-        console.log(sum);
         inputExpression.textContent = sum + ' x'
         inputNum.textContent = 0
         count = ''
@@ -101,7 +104,6 @@ buttonClick.addEventListener('click',function(elem){
         sign.push('/')
         console.log(sum);
         sum /= +inputNum.textContent
-        console.log(sum);
         inputExpression.textContent = sum + ' /'
         inputNum.textContent = 0
         count = ''
